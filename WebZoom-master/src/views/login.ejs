@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <title>Web ZOOM</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="./public/css/login.css">
+  <script src="./public/js/login.js"></script>
+  <style>
+    /*
+    body {
+      background-image: url("public/image/zoom2.jpg");
+      background-size: cover;
+    }
+    */
+    body::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("public/image/zoom4.jpg");
+    background-size: cover;
+    -webkit-filter: blur(5px); 
+    -moz-filter: blur(5px); 
+    -o-filter: blur(5px); 
+    -ms-filter: blur(5px); 
+    filter: blur(5px);
+    z-index: -1; 
+    content: "";
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-inner">
+        <!--
+        <div class="logo">
+          <h1>Web ZOOM</h1>
+        </div>
+        -->
+        <!--
+        <div class="menu">
+          <a href="login.html" id="loginmenu">로그인</a>
+          <a href="join.html" id="joinmenu">회원가입</a>
+          <a href="room.html" id="roommenu">방 입장</a>
+        </div>
+        -->
+
+      </div>
+      <div class="trigger"></div>
+      <!--크기 일정하게 맞춰주는 역할-->
+    </header>
+  </div>
+  <main>
+    <!-- LOGIN MODULE -->
+    <div class="login">
+      <div class="wrap">
+
+          <!-- LOGIN FORM -->
+          <div class="user">
+              <!-- ACTIONS
+              <div class="actions">
+                  <a class="help" href="#signup-tab-content">Sign Up</a><a class="faq" href="#login-tab-content">Login</a>
+              </div>
+              -->
+              <!-- LOGO -->
+              <div class="logo">
+                  <!--<a href="#"><img src="http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/logo.png" alt=""></a>-->
+                  <h2>WebZoom</h2>
+              </div>
+              <!-- TOGGLE -->
+              <div id="toggle-wrap">
+                  <div id="toggle-terms">
+                      <div id="cross">
+                          <span></span>
+                          <span></span>
+                      </div>
+                  </div>
+              </div>
+              <!-- TERMS -->
+              <div class="terms">
+                  <h2>WebZoom Terms of Service</h2>
+                  <p class="small">Last modified: November 13, 2022</p>
+                  <h3>Welcome to WebZoom</h3>
+                  <p>By using our Services, you are agreeing to these terms. Please read them carefully.</p>
+                  <p>To protect your WebZoom Account, keep your password confidential. You are responsible for the activity that happens on or through your WebZoom Account. Try not to reuse your dp Account password on third-party applications.</p>
+                  <p>WebZoom’s privacy policies explain how we treat your personal data and protect your privacy when you use our Services. By using our Services, you agree that WebZoom can use such data in accordance with our privacy policies.</p>
+              </div>
+
+              <!-- RECOVERY -->
+              <div class="recovery">
+                  <h2>Password Recovery</h2>
+                  <p>Enter either the <strong>email address</strong> or <strong>username</strong> on the account and <strong>click Submit</strong></p>
+                  <p>We'll email instructions on how to reset your password.</p>
+                  <form class="recovery-form" action="" method="post">
+                      <input type="text" class="input" id="user_recover" placeholder="Enter Email or Username Here">
+                      <input type="submit" class="button" value="Submit">
+                  </form>
+                  <p class="mssg">An email has been sent to you with further instructions.</p>
+              </div>
+
+              <!-- FORM -->
+              <div class="form-wrap">
+                  <!-- TABS -->
+                <div class="tabs">
+                      <h3 class="login-tab"><a class="log-in active" href="#login-tab-content"><span>Login<span></a></h3>
+                  <h3 class="signup-tab"><a class="sign-up" href="#signup-tab-content"><span>Sign Up</span></a></h3>
+                </div>
+                  <!-- TABS CONTENT -->
+                <div class="tabs-content">
+                      <!-- TABS CONTENT LOGIN -->
+                  <div id="login-tab-content" class="active">
+                    <form class="login-form" action="" method="post">
+                      <input type="text" class="input" id="user_loginEmail" autocomplete="off" placeholder="Input your Email">
+                      <input type="password" class="input" id="user_loginPw" autocomplete="off" placeholder="Password">
+                      <input type="checkbox" class="checkbox" checked id="remember_me">
+                      <label for="remember_me">Remember me</label>
+                      <input type="submit" class="button" value="로그인" onclick='loginCheck();'>
+                    </form>
+                    <div class="help-action">
+                      <p><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">Forgot your password?</a></p>
+                    </div>
+                  </div>
+                      <!-- TABS CONTENT SIGNUP -->
+                  <div id="signup-tab-content">
+                    <form class="signup-form" action="" method="post">
+                      <input type="email" class="input" id="user_email" autocomplete="off" placeholder="Email">
+                      <input type="text" class="input" id="user_name" autocomplete="off" placeholder="Username">
+                      <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="Password">
+                      <input type="password" class="input" id="user_pass2" autocomplete="off" placeholder="Confirm Password">
+                      <input type="submit" class="button" value="회원가입" onclick='signupCheck();'> <!--  -->
+                    </form>
+                    <div class="help-action">
+                      <p>By signing up, you agree to our</p>
+                      <p><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="agree" href="#">Terms of service</a></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+  </main>

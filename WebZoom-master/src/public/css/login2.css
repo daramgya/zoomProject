@@ -1,0 +1,74 @@
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Web Fonts - Source Sans Pro */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+/* Web Fonts - NoonNoo */
+@font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Common CSS */
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #222;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'NEXON Lv2 Gothic', sans-serif;
+    font-size: 18px;
+    line-height: 2.0em;
+    margin: 0;
+    background-color: #fff;
+    color: #222;
+}
+
+
+/* Header */
+header {
+    /* position: fixed; */
+    width: 100%;
+    padding: 0px;
+    z-index: 10;
+}
+
+header.active {
+    background-color: #222;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+    width: 1300px;
+    margin: auto;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.logo {
+    float: left;
+    font-size: 22px;
+}
+
+.menu {
+    float: right;
+    line-height: 100px;
+}
+
+.menu a {
+    margin: 22px;
+    font-size: 20px;
+    color: #222;
+}

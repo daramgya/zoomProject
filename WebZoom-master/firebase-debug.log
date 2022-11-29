@@ -1,0 +1,59 @@
+[debug] [2022-11-12T13:04:58.165Z] ----------------------------------------------------------------------
+[debug] [2022-11-12T13:04:58.167Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-12T13:04:58.168Z] CLI Version:   11.16.0
+[debug] [2022-11-12T13:04:58.168Z] Platform:      win32
+[debug] [2022-11-12T13:04:58.168Z] Node Version:  v16.15.0
+[debug] [2022-11-12T13:04:58.171Z] Time:          Sat Nov 12 2022 22:04:58 GMT+0900 (대한민국 표준시)
+[debug] [2022-11-12T13:04:58.171Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-12T13:04:58.270Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-12T13:04:58.270Z] > authorizing via signed-in user (gnjtd7727@gmail.com)
+[debug] [2022-11-12T13:04:58.271Z] [iam] checking project webrtc-2ce76 for permissions ["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2022-11-12T13:04:58.274Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/webrtc-2ce76:testIamPermissions [none]
+[debug] [2022-11-12T13:04:58.274Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/webrtc-2ce76:testIamPermissions x-goog-quota-user=projects/webrtc-2ce76
+[debug] [2022-11-12T13:04:58.274Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/webrtc-2ce76:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2022-11-12T13:04:59.185Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/webrtc-2ce76:testIamPermissions 200
+[debug] [2022-11-12T13:04:59.185Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/webrtc-2ce76:testIamPermissions {"permissions":["firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2022-11-12T13:04:59.189Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/webrtc-2ce76 [none]
+[debug] [2022-11-12T13:04:59.629Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/webrtc-2ce76 200
+[debug] [2022-11-12T13:04:59.630Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/webrtc-2ce76 {"projectId":"webrtc-2ce76","projectNumber":"873074352549","displayName":"webrtc","name":"projects/webrtc-2ce76","resources":{"hostingSite":"webrtc-2ce76","realtimeDatabaseInstance":"webrtc-2ce76-default-rtdb"},"state":"ACTIVE","etag":"1_76a78242-ffbd-4ae0-a8fb-6c25aa175c38"}
+[debug] [2022-11-12T13:04:59.631Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/webrtc-2ce76 [none]
+[debug] [2022-11-12T13:05:00.066Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/webrtc-2ce76 200
+[debug] [2022-11-12T13:05:00.066Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/webrtc-2ce76 {"projectId":"webrtc-2ce76","projectNumber":"873074352549","displayName":"webrtc","name":"projects/webrtc-2ce76","resources":{"hostingSite":"webrtc-2ce76","realtimeDatabaseInstance":"webrtc-2ce76-default-rtdb"},"state":"ACTIVE","etag":"1_76a78242-ffbd-4ae0-a8fb-6c25aa175c38"}
+[info] 
+[info] === Deploying to 'webrtc-2ce76'...
+[info] 
+[info] i  deploying database, hosting 
+[info] i  database: checking rules syntax... 
+[debug] [2022-11-12T13:05:00.075Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/webrtc-2ce76/locations/-/instances/webrtc-2ce76-default-rtdb [none]
+[debug] [2022-11-12T13:05:00.529Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/webrtc-2ce76/locations/-/instances/webrtc-2ce76-default-rtdb 200
+[debug] [2022-11-12T13:05:00.530Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/webrtc-2ce76/locations/-/instances/webrtc-2ce76-default-rtdb {"name":"projects/873074352549/locations/us-central1/instances/webrtc-2ce76-default-rtdb","project":"projects/873074352549","databaseUrl":"https://webrtc-2ce76-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2022-11-12T13:05:00.533Z] >>> [apiv2][query] PUT https://webrtc-2ce76-default-rtdb.firebaseio.com/.settings/rules.json dryRun=true
+[debug] [2022-11-12T13:05:00.533Z] >>> [apiv2][body] PUT https://webrtc-2ce76-default-rtdb.firebaseio.com/.settings/rules.json "{\n  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */\n  \"rules\": {\n    \".read\": false,\n    \".write\": false\n  }\n}"
+[debug] [2022-11-12T13:05:01.013Z] <<< [apiv2][status] PUT https://webrtc-2ce76-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2022-11-12T13:05:01.014Z] <<< [apiv2][body] PUT https://webrtc-2ce76-default-rtdb.firebaseio.com/.settings/rules.json {"status":"ok"}
+[info] +  database: rules syntax for database webrtc-2ce76-default-rtdb is valid 
+[debug] [2022-11-12T13:05:01.029Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/webrtc-2ce76/versions [none]
+[debug] [2022-11-12T13:05:01.029Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/webrtc-2ce76/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-11-12T13:05:02.013Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/webrtc-2ce76/versions 200
+[debug] [2022-11-12T13:05:02.013Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/webrtc-2ce76/versions {"name":"projects/873074352549/sites/webrtc-2ce76/versions/fd348c13859bd0d1","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[webrtc-2ce76]: beginning deploy... 
+[debug] [2022-11-12T13:05:02.220Z] Error: EPERM: operation not permitted, scandir 'C:/Users/김후성/webserver/firebase-debug.log'
+    at Object.readdirSync (node:fs:1405:3)
+    at GlobSync._readdir (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async deploy (C:\Users\김후성\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:5)
+[error] 
+[error] Error: An unexpected error has occurred.

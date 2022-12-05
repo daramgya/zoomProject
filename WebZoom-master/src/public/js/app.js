@@ -1,6 +1,7 @@
 const socket = io();
 
-const myFace = document.querySelector("#myFace");
+const myFace = document.querySelector("#myFace"); // 사이드 화면들
+const myFace2 = document.querySelector("#myFace2"); // 가운데 큰 화면
 const muteBtn = document.querySelector("#mute");
 const muteIcon = muteBtn.querySelector(".muteIcon");
 const unMuteIcon = muteBtn.querySelector(".unMuteIcon");
@@ -17,11 +18,17 @@ const welcome = document.querySelector("#welcome");
 
 const HIDDEN_CN = "hidden";
 
+var globalDivId = new Array()
+
 let myStream;
 let muted = true;
 unMuteIcon.classList.add(HIDDEN_CN);
 let cameraOff = false;
 unCameraIcon.classList.add(HIDDEN_CN);
+//
+let screenShareGreen = true;
+unScreenIcon.classList.add(HIDDEN_CN);
+
 let roomName = "";
 let nickname = "";
 let peopleInRoom = 1;
@@ -32,7 +39,7 @@ let pcObj = {
 
 // screen공유 관련 추가 작성
 let shared = true;
-unScreenIcon.classList.add(HIDDEN_CN);
+
 
 async function getCameras() {
   try {
@@ -73,7 +80,8 @@ async function getMedia(deviceId) {
 
     // stream을 mute하는 것이 아니라 HTML video element를 mute한다.
     myFace.srcObject = myStream;
-    myFace.muted = true;
+    myFace.muted = true
+	//
 
     if (!deviceId) {
       // mute default
@@ -172,25 +180,73 @@ cameraBtn.addEventListener("click", handleCameraClick);
 camerasSelect.addEventListener("input", handleCameraChange);
 screenBtn.addEventListener("click", startCapture);
 
+
 // 화면 공유~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Screen Sharing
+
 let captureStream = null;
-
 async function startCapture() {
-  try {
-    captureStream = await navigator.mediaDevices.getDisplayMedia({
-      video: true,
-      audio: true,
-    });
 
-    // const screenVideo = document.querySelector("#myFace");
-	//screenVideo.srcObject = captureStream;
-	myFace.srcObject = captureStream;
-    
-  } catch (error) {
-    console.error(error);
+	if (screenShareGreen) {
+		unScreenIcon.classList.remove(HIDDEN_CN);
+		screenIcon.classList.add(HIDDEN_CN);
+		screenShareGreen = false;
+		try {
+			myScreen = await navigator.mediaDevices.getDisplayMedia({ // myStream
+				video: true,
+				audio: true,
+			});
+			myFace.srcObject = myScreen;
+			if (pcObj) {
+				const newVideoTrack = myScreen.getVideoTracks()[0];
+				for (var key in pcObj) {
+				  //console.log(pcObj[key]);
+				  const peerConnection = pcObj[key];
+				  const peerVideoSender = peerConnection
+				  .getSenders()
+				  .find((sender) => sender.track.kind == "video");
+				peerVideoSender.replaceTrack(newVideoTrack);
+				}
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	} else {
+		screenIcon.classList.remove(HIDDEN_CN);
+		unScreenIcon.classList.add(HIDDEN_CN);
+		screenShareGreen = true;
+		try {
+			const screenTrack = myStream.getVideoTracks()[0];
+			for (var key in pcObj) {
+				const userConnection = pcObj[key];
+				const peerVideoSender = userConnection
+					.getSenders()
+					.find((sender) => sender.track.kind == "video");
+				peerVideoSender.replaceTrack(screenTrack);
+				myScreen.getTracks().forEach((track) => track.stop());
+				myFace.srcObject = myStream; // 내 비디오로 변경
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	} 
+} 
+
+// 전체화면 코드
+const FullBtn = document.querySelector("#fullScreen");
+
+FullBtn.addEventListener("click", toggleFullScreen);
+
+function toggleFullScreen() {
+  if (!myFace2.fullscreenElement) {
+    myFace2.requestFullscreen(); // myFace2.documentElement.requestFullscreen();
+  } else {
+    if (myFace2.exitFullscreen) {
+      myFace2.exitFullscreen();
+    }
   }
 }
+	
 
 // Welcome Form (choose room)
 
@@ -259,7 +315,7 @@ const leaveBtn = document.querySelector("#leave");
 
 function leaveRoom() {
   socket.disconnect();
-
+  //alert(globalDivId[0]); // // //
   call.classList.add(HIDDEN_CN);
   welcome.hidden = false;
   //
@@ -464,10 +520,32 @@ function paintPeerFace(peerStream, id, remoteNickname) {
   nicknameContainer.id = "userNickname";
   nicknameContainer.innerText = remoteNickname;
   div.appendChild(video);
+  globalDivId.push(div.id);
   div.appendChild(nicknameContainer);
   streams.appendChild(div);
+  div.addEventListener("click", () => userCameraClick(peerStream, remoteNickname));
   sortStreams();
 }
+
+function userCameraClick(stream, nickName) {
+  myFace2.srcObject = stream
+  const nicknameContainer = document.createElement("h3");
+  userNickname.innerText = nickName;
+}
+
+/*
+function userCameraClick(id) {
+  const streams = document.querySelector("#videoList");
+  const streamArr = streams.querySelectorAll("div");
+  const clickDivId = id
+  streamArr.forEach((streamElement) => {
+    if (streamElement.id === clickDivId) {
+		//myFace2.srcObject 
+		console.log(streamElement.querySelector("video"))
+    }
+  });
+}
+*/
 
 function sortStreams() {
   const streams = document.querySelector("#videoList");

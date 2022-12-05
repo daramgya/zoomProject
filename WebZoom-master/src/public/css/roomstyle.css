@@ -336,6 +336,26 @@ main { /*방 입장*/
   color: var(--red-icon-color);
 }
 
+/* 전체화면 버튼 */
+#streamBox #controlers #fullScreen {
+  padding: 5px 10px;
+  margin-right: 5px;
+	
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+
+  background: white;
+  color: var(--header-background-color);
+
+  transition: all 0.2s ease-in-out;
+}
+
+#streamBox #controlers #fullScreen:hover {
+  background-color: var(--header-background-color);
+  color: white;
+}
 
 #streamBox #controlers #leave {
   padding: 5px 10px;

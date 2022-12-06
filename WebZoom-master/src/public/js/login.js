@@ -23,7 +23,7 @@ function signupCheck() {
         }
         else if (data === "success") {
           alert("성공적으로 회원가입 하였습니다!");
-          location.href="http://localhost:4000/";
+          location.href="https://daramzoom.run.goorm.io/";
         }
       }
     });
@@ -50,7 +50,7 @@ function loginCheck() {
         }
         else if (data === "success") {
           alert("성공적으로 로그인 되었습니다.");
-          location.href="http://localhost:4000/";
+          location.href="https://daramzoom.run.goorm.io/";
         }
       }
     });

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/roomstyle.css">
-    <title>Web ZOOM</title>
+    <title>RoundM</title>
   </head>
   <body> 
     <div class="container">
@@ -15,7 +15,7 @@
         <div class="header-inner">
   
           <div class="logo">
-            <h1>Web ZOOM</h1>
+            <h1>RoundM</h1>
           </div>
   
           <div class="menu">
@@ -31,18 +31,19 @@
     <main>
       <div id="welcome"> 
         <form>
-          <input id="roomName" type="text" required placeholder="Room Name">
-          <input id="nickname" type="text" required placeholder="Your Nickname">
-          <button>Enter Room</button>
+          <input id="roomName" type="text" required placeholder="방 이름을 입력하세요">
+          <input id="nickname" type="text" required placeholder="닉네임을 입력하세요">
+          <button>방 입장</button>
         </form>
       </div>
-		
-	  <div class="flex-container column">
-		  <div id="videoList">
-			  <video id="myFace" autoplay playsinline width="200" height="200"></video>
-		  </div>
+      
+     <div class="flex-container column" id="flex-container">
+        <div id="videoList">
+           <video id="myFace" autoplay playsinline width="200" height="200"></video>
+        <h3 id="userNickname"> </h3>
+        </div>
       </div>
-		
+      
       <div class="call" id="call">
         <div id="streamBox">
           <div id="streams">
@@ -59,11 +60,11 @@
               <div id="buttons">
                 <button id="mute"><i class="fas fa-microphone fa-2x unMuteIcon"></i><i class="fas fa-microphone-slash fa-2x muteIcon"></i></button>
                 <button id="camera"> <i class="fas fa-video fa-2x cameraIcon"></i><i class="fas fa-video-slash fa-2x unCameraIcon"></i></button>
-				<button id="screen"> <i class="fas fa-window-restore fa-2x screenIcon"></i><i class="fas fa-window-restore fa-2x unScreenIcon"></i></button>
+            <button id="screen"> <i class="fas fa-window-restore fa-2x screenIcon"></i><i class="fas fa-window-restore fa-2x unScreenIcon"></i></button>
               </div>
             </div>
             <div id="controlers__column">
-			  <button id="fullScreen">Full-Screen</button>
+              <button id="fullScreen">Full-Screen</button>
               <button id="leave">Leave</button>
             </div>
           </div>
@@ -71,7 +72,7 @@
         <div id="chatRoom"> <!-- 채팅창 -->
           <ul id="chatBox"></ul> <!-- 채팅 입력 -->
           <form id="chatForm">
-            <input required type="text" placeholder="Write your chat">
+            <input required type="text" placeholder="채팅을 입력하세요">
             <button>Send</button>
           </form>
         </div>

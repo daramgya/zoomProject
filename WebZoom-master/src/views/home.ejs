@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-  <title>Web ZOOM</title>
+  <title>RoundM</title>
   <!-- jQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <!-- Slick Slider -->
@@ -27,21 +27,21 @@
       <div class="header-inner">
 
         <div class="logo">
-          <h1>Web ZOOM</h1>
+          <h1>RoundM</h1>
           
         </div>
         <div class="nickname">
           <% if(is_logined === true){ %>
-            <h3><%= user_nickname %> 님 환영합니다! </h3>
+            <h4><%= user_nickname %> 님 환영합니다! </h4>
           <% } %>
         </div>
         <div class="menu">
           
           <% if(is_logined === true){ %>
-            <a href="http://localhost:4000/logout" id="logoutButton">로그아웃</a>
+            <a href="https://daramzoom.run.goorm.io/logout" id="logoutButton">로그아웃</a>
           <% } else { %>
-            <a href="http://localhost:4000/login" id="loginmenu">로그인</a> <!-- login.html -->
-            <a href="http://localhost:4000/join" id="joinmenu">회원가입</a> <!-- join.html -->
+            <a href="https://daramzoom.run.goorm.io/login" id="loginmenu">로그인</a> <!-- login.html -->
+            <a href="https://daramzoom.run.goorm.io/join" id="joinmenu">회원가입</a> <!-- join.html -->
           <% } %>
           <a href="https://daramzoom.run.goorm.io/room" id="roommenu">방 입장</a> <!-- room.html --> <!--"http://localhost:4000/room" -->
         </div>
@@ -61,7 +61,7 @@
 
     <div class="welcome-heading">
       <h1>
-        Welcome to the Web ZOOM
+        Welcome to the RoundM
         <em id="typing"></em>
       </h1>
       <p>

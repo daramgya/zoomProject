@@ -161,13 +161,18 @@ main { /*방 입장*/
   display: flex;
 }
 
-.flex-container{
+.flex-container{ /*흰색박스*/
             display: flex;
             margin: 5px;
-            border:1px solid lightgray;
+            border:1px solid var(--chatBox-background-color);
             border-radius: 10px;
-            background-color: aliceblue;
+            background-color: var(--chatBox-background-color);
             font-size: 24px;
+            position: relative;
+            width: 20%;
+            height: 100%;
+        
+            /* position: fixed; */
         }
         .flex-container.row{flex-direction: row;}
         .flex-container.column{flex-direction: column;}
@@ -180,13 +185,37 @@ main { /*방 입장*/
             text-align: center;
                       color: white;
         }
-		.color-gray{ background-color: gray; }
+      .color-gray{ background-color: gray; }
         .color-red{ background-color: darksalmon; }
         .color-blue{ background-color: dodgerblue; }
         .color-green{ background-color: forestgreen; }
         .color-yellow{ background-color: gold; }
         .color-pupple{ background-color: rebeccapurple; }
         .color-orange{ background-color: orange; }
+
+#flex-container #videoList video {
+width: 300px;
+height: 112px;
+}
+
+#flex-container #videoList #userNickname {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 10px;
+  margin: auto;
+}
+
+#flex-container #videoList video {
+width: 300px;
+height: 112px;
+}
+
+#flex-container #videoList #userNickname {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 10px;
+  margin: auto;
+}
 
 
 #streamBox {

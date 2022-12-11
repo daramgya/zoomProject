@@ -77,10 +77,12 @@ app.get("/logout", (req, res) => {
   //res.render("home.ejs");
 });
 
+/*
 app.get("/room", (req, res) => {
   res.render("room");
 });
-/*
+*/
+
 app.get("/room", (req, res) => {
   if(req.session.user_id) {
     res.render("room", {"user_nickname" : req.session.user_nickname});
@@ -92,7 +94,7 @@ app.get("/room", (req, res) => {
   }
   //res.render("room"); // room
 });
-*/
+
 
 app.get("/login", (req, res) => {
   res.render("login"); // login

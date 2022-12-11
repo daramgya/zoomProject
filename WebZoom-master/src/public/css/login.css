@@ -568,11 +568,27 @@ input {
     font-family: inherit;
     color: #fff;
 }
+.form-wrap form .btn1 {
+    text-align : center;
+    background-color: #04BEBD;
+    margin: 1em 0;
+    padding: .2em 3em;
+    width: auto;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: .8em;
+    border-radius: 0;
+    -webkit-box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.75);
+}
+
 .form-wrap form .button {
     margin: 1em 0;
     padding: .2em 3em;
     width: auto;
-    display: block;
+    display: inline-block;
     background-color: #04BEBD;
     border: none;
     color: #fff;
@@ -586,6 +602,7 @@ input {
 .form-wrap form .button:hover {
     background-color: #04B5B5;
 }
+
 .form-wrap form .checkbox {
     margin: 1em 0;
     padding: 20px;

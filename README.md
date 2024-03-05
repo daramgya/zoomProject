@@ -22,3 +22,5 @@
 * groomIDE
 
 # 실행화면
+![1](https://github.com/daramgya/zoomProject/assets/97143956/9f502721-68b7-4a6b-820e-9a88107326f8)
+![2](https://github.com/daramgya/zoomProject/assets/97143956/3133dda2-fe04-4a2f-acc6-c4d1085fe60a)

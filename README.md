@@ -11,13 +11,13 @@
 * 사용자 화면 클릭 시 메인스크린 화면 전환
 
 # 사용언어
+* Node.js
+* javascript
 * ejs
 * css
-* javascript
 
 # 개발환경
 * Node.js
-* MySQL
 * VSCode
 * groomIDE
 
